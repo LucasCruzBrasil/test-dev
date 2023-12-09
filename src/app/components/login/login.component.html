@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+    
+    <div class="col-md-12">
+    
+    <div class="card card-primary" >
+    <div class="card-header">
+    <h3 class="card-title">Login <small>Test-Dev</small></h3>
+    </div>
+    
+    
+    <form id="quickForm" [formGroup]="loginFormGroup">
+    <div class="card-body">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input formControlName="login" type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" [(ngModel)]="user.login">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input formControlName="senha" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="user.login">
+    </div>
+    <div class="form-group mb-0">
+    
+    </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      </form>

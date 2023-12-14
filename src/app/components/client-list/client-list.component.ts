@@ -7,6 +7,7 @@ import { Empresa } from 'src/app/model/empresa';
 import { AuthService } from 'src/app/service/auth.service';
 import { ListService } from 'src/app/service/list.service';
 import { take } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-list',
@@ -18,7 +19,7 @@ export class ClientListComponent implements OnInit{
   empresa:Empresa[]
   formEdit: FormGroup
 
-  constructor(private http: ListService, private authService: AuthService) {}
+  constructor(private http: ListService, private authService: AuthService, private router: Router) {}
  
   ngOnInit(): void {
     
@@ -94,10 +95,22 @@ updateForm(empresa: Empresa[]) {
            this.updateForm(empresa)
           }
    )
-   
-  
-  
-  
+  }
+
+  updateEmpresa(empresa:Empresa[]){
+    const id = empresa.map(res => res.id)
+    this.formEdit.value
+    console.log(empresa)
+    this.http.updateEmpresa(id,this.formEdit.value).subscribe(
+      res => {
+        this.listar()
+      })
+  }
+
+  navegarParaFormularioEdit(dados:any){
+      console.log(dados)
+      this.router.navigate(['/edit'], {state:{dadosFormulario: dados}})
   }
 
 }
+

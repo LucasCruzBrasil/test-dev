@@ -1,0 +1,46 @@
+a[data-tooltip] {
+    position: relative;
+    text-decoration: none;
+}
+
+a[data-tooltip]:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0.9;
+    visibility: visible;
+}
+
+/* Opcional: Adicione animação de fade para o tooltip */
+a[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+a[data-tooltip]:hover::before {
+    opacity: 0.9;
+    visibility: visible;
+}
+table {
+    
+    font-size: 14px;
+    /* ou outra fonte de sua escolha e tamanho de fonte desejado */
+}
+centered-header tr, th{
+    
+    text-align:center;
+}

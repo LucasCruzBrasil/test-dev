@@ -5,9 +5,13 @@ import { ClientListComponent } from './components/client-list/client-list.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthService } from './service/auth.service';
 import { AuthGuardGuard } from './service/auth-guard.guard';
+import { FormEditComponent } from './components/form-edit/form-edit.component';
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuardGuard]}
+  {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuardGuard]},
+  {path:'lista', component:ClientListComponent, canActivate:[AuthGuardGuard]},
+  {path:'edit/:id', component:FormEditComponent, canActivate:[AuthGuardGuard]}
+
 ];
 
 

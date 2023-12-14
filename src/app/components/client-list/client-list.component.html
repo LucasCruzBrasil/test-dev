@@ -1,9 +1,10 @@
+<app-dashboard></app-dashboard>
+
 <div class="wrapper">
 
-    <!-- conteudo central do html  ode vamos implementar a lista-->
     <div class="content-wrapper">
 
-        <div class="card" style=" max-width: 890px; margin: 170px auto;">
+        <div class="card" style="margin: 170px auto;">
             <div class="card-header border-transparent">
                 <h3 class="card-title">Lista de Empresas</h3>
                 <div class="card-tools">
@@ -17,65 +18,52 @@
             </div>
 
             <div class="card-body p-0">
-                <div class="table-responsive">
-                    <table class="table m-0">
+                <div class="table-responsive" >
+                    <table class="table m-0 text-nowrap">
                         <thead>
-                            <tr >
-                                <th>Edit</th>
-                                <th>Delete</th>
-                                <th>id</th>
-                                <th>razao_social</th>
-                                <th>nome_fantasia</th>
-                                <th>cnpj</th>
-                                <th>nome_responsavel</th>
-                                <th>cpf_responsavel</th>
+                            <tr class="centered-header">
+                                <th>CNPJ</th>
+                                <th>RAZÃO SOCIAL</th>
+                                <th>NOME FANTASIA</th>
+                                <th>NOME RESPONSÁVEL</th>
+                                <th>CELULAR RESPONSÁVEL</th>
+                                <th>ATIVO</th>
+                                <th>AÇÃO</th>
+                               
 
-                                <th> email_responsavel</th>
-                                <th>celular_responsavel</th>
-                                <th>cep</th>
-                                <th>logradouro</th>
-                                <th>numero_logradouro</th>
-                                <th>complemento_logradouro</th>
-                                <th>bairro</th>
-                                <th>cidade</th>
-                                <th>estado</th>
-                                <th>criado_em</th>
-                                <th>atualizado_em</th>
-                                <th>ativo</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let empresas of empresa">
-                                <th><button type="button" class="btn btn-primary" data-toggle="modal"(click)="onUpdate(empresas)" data-target="#myModal">
-                                    Abrir Modal
-                                  </button>
-                                  </th>
-                                <th><svg color="white"xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><path fill="white" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></th>
 
-                                <td>{{empresas.id}}</td>
+                            <tr *ngFor="let empresas of empresa">
+
+                                <td>{{empresas.cnpj}}</td>
                                 <td>{{empresas.razao_social}}</td>
                                 <td>{{empresas.nome_fantasia}}</td>
-                                <td>{{empresas.cnpj}}</td>
-                                <td>{{empresas.nome_responsavel}}</td>
-                                <td>{{empresas.cpf_responsavel}}</td>
-                                <td>{{empresas.email_responsavel}}</td>
-                                <td>{{empresas.celular_responsavel}}</td>
-                                <td>{{empresas.cep}}</td>
-                                <td>{{empresas.logradouro}}</td>
-                                <td>{{empresas. numero_logradouro}}</td>
-                                <td>{{empresas.complemento_logradouro}}</td>
-                                <td>{{empresas.bairro}}</td>
-                                <td>{{empresas.cidade}}</td>
-                                <td>{{empresas.estado}}</td>
-                                <td>{{empresas.criado_em}}</td>
-                                <td>{{empresas.atualizado_em}}</td>
-                                <td>{{empresas.ativo}}</td>
-                                <td>
-                                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63
-                                    </div>
-                                </td>
+                                <td style=" text-align: center;">{{empresas.nome_responsavel}}</td>
+                                <td style=" text-align: center;">{{empresas.celular_responsavel}}</td>
+                                <td style=" text-align: center;">{{empresas.ativo}}</td>
+                                
+                                    
+                                    <td style=" text-align: center;"><a class="btn btn-info" [routerLink]="['/edit', empresas.id]"data-tooltip="Editar">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        
+                                    </a>
+                                    {{' '}}
+                                    <a class="btn btn-danger" data-tooltip="Excluir">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        
+                                    </a></td>
+                                  
+                               
                             </tr>
-                           
+                            <tr>
+
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -86,10 +74,9 @@
         </div>
 
         <!-- Modal -->
-    <div class="modal fade" id="myModal">
+        <!-- <div class="modal fade" id="myModal">
         <div class="modal-dialog">
           <div class="modal-content">
-            <!-- Conteúdo do modal aqui -->
             <div class="modal-header">
               <h4 class="modal-title">Editar Empresa</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -102,7 +89,7 @@
                 <div class="card-body">
                     <form [formGroup]="formEdit">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col" style="border:1px solid tomato">
                                 <div class="form-group">
                                     <label>razao_social</label>
                                      <input formControlName="razao_social" type="text" class="form-control" placeholder="Enter ...">
@@ -172,6 +159,7 @@
 
                             </div>
                         </div>
+
                     </form>
                     
                     
@@ -179,11 +167,105 @@
                </div>
             
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal" (click)="updateEmpresa(empresa)">Salvar</button>
             </div>
           </div>
         </div>
       </div>
   
-      <!-- Outro conteúdo da página aqui -->
-    </div>
+    </div> -->
+        <!-- <div class="wrapper">
+
+        <div class="content-wrapper">
+    <section class="content">
+
+        <div class="card">
+        <div class="card-header">
+        <h3 class="card-title">Projects</h3>
+        <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+        <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+        <i class="fas fa-times"></i>
+        </button>
+        </div>
+        </div>
+        <div class="card-body p-0">
+        <table class="table table-striped projects">
+        <thead>
+        <tr >
+        <th style="width: 1%">
+            CNPJ
+        </th>
+        <th style="width: 20%">
+            RAZÃO SOCIAL
+        </th>
+        <th style="width: 30%">
+            NOME RESPONSÁVEL
+        </th>
+       
+        <th style="width: 20%">
+            NOME FANTASIA
+        </th>
+        <th>
+            ATIVO
+        </th>
+        <th>AÇÃO</th>
+        <th>AÇÃO</th>
+        <th>AÇÃO</th>
+        
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let empresas of empresa">
+        <td>
+            {{empresas.cnpj}}
+        </td>
+        <td>
+        {{empresas.razao_social}}
+        </td>
+        <td>
+            {{empresas.nome_fantasia}}
+        </td>
+        <td>
+            {{empresas.nome_responsavel}}
+        </td>
+        <td>
+            {{empresas.celular_responsavel}}
+        </td>
+        <td>
+            {{empresas.ativo}}
+        </td>
+        <td class="project-actions text-right">
+        <a class="btn btn-primary btn-sm" href="#">
+        <i class="fas fa-folder">
+        </i>
+        View
+        </a>
+        <a class="btn btn-info btn-sm" href="#">
+        <i class="fas fa-pencil-alt">
+        </i>
+        Edit
+        </a>
+        <a class="btn btn-danger btn-sm" href="#">
+        <i class="fas fa-trash">
+        </i>
+        Delete
+        </a>
+        </td>
+        </tr>
+        <tr>
+        <td>
+        #
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </section>
+        </div>
+       </div>
+         -->

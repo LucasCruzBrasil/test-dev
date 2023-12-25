@@ -1,13 +1,14 @@
-import { DashboardComponent } from './../dashboard/dashboard.component';
-import { HttpClient } from '@angular/common/http';
+
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from 'src/app/model/empresa';
 import { AuthService } from 'src/app/service/auth.service';
 import { ListService } from 'src/app/service/list.service';
-import { take } from 'rxjs';
 import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/service/usuarios.service';
+import { Usuario } from 'src/app/model/usuario';
+declare var $: any;                  //INSERT THIS LINE
 
 @Component({
   selector: 'app-client-list',
@@ -18,13 +19,12 @@ export class ClientListComponent implements OnInit{
   x : []
   empresa:Empresa[]
   formEdit: FormGroup
+  usuario:Usuario[]
 
   constructor(private http: ListService, private authService: AuthService, private router: Router) {}
  
   ngOnInit(): void {
-    
     this.listar();
-
     this.formEdit = new FormGroup({
       id: new FormControl(''),
       razao_social: new FormControl('', [Validators.required]),
@@ -51,6 +51,10 @@ export class ClientListComponent implements OnInit{
     
    
 } 
+
+voltarRota(){
+  this.router.navigate(['dashboard'])
+}
 
 updateForm(empresa: Empresa[]) {
   this.formEdit.patchValue({
@@ -85,6 +89,8 @@ updateForm(empresa: Empresa[]) {
     }
   )
  }
+
+ 
 
   onUpdate(empresa){
    const takeId = empresa['id']

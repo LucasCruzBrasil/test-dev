@@ -6,15 +6,28 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthService } from './service/auth.service';
 import { AuthGuardGuard } from './service/auth-guard.guard';
 import { FormEditComponent } from './components/form-edit/form-edit.component';
-const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuardGuard]},
-  {path:'lista', component:ClientListComponent, canActivate:[AuthGuardGuard]},
-  {path:'edit/:id', component:FormEditComponent, canActivate:[AuthGuardGuard]}
-
-];
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { FormEditClientesComponent } from './components/form-edit-clientes/form-edit-clientes.component';
+import { FormEditUsuariosComponent } from './components/form-edit-usuarios/form-edit-usuarios.component';
+import { VeiculoComponent } from './components/veiculo/veiculo.component';
+import { FormEditVeiculoComponent } from './components/form-edit-veiculo/form-edit-veiculo.component';
 
 
+  const routes: Routes = [
+   {path: '', component: LoginComponent},
+   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuardGuard]},
+   {path:'lista', component:ClientListComponent, canActivate:[AuthGuardGuard]},
+   {path:'cliente', component:ClientesComponent, canActivate:[AuthGuardGuard]},
+   {path:'veiculo', component:VeiculoComponent, canActivate:[AuthGuardGuard]},
+   {path:'edit/:id', component:FormEditComponent, canActivate:[AuthGuardGuard]},
+   {path:'edit-clientes/:id', component:FormEditClientesComponent, canActivate:[AuthGuardGuard]},
+   {path:'edit-usuarios/:id', component:FormEditUsuariosComponent, canActivate:[AuthGuardGuard]},
+   {path:'edit-veiculos/:id', component:FormEditVeiculoComponent, canActivate:[AuthGuardGuard]},
+
+
+
+  
+  ];
 
 
 

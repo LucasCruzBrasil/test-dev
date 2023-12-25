@@ -1,0 +1,62 @@
+ul.tree {
+    list-style: none;
+    padding-left: 20px;
+  }
+
+  /* Estilo para cada item da árvore */
+  ul.tree li {
+    position: relative;
+  }
+
+  /* Estilo para o ícone de abertura/fechamento */
+  ul.tree li label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    line-height: 20px;
+  }
+
+  /* Estilo para o ícone fechado */
+  ul.tree li input[type="checkbox"] {
+    display: none;
+  }
+
+  ul.tree li input[type="checkbox"] + label:before {
+    /* content: '▶'; */
+    position: absolute;
+    left: 0;
+  }
+
+  /* Estilo para o ícone aberto */
+  /* ul.tree li input[type="checkbox"]:checked + label:before {
+     content: '▼'; 
+    
+  } */
+
+  /* Estilo para os itens filhos */
+  ul.tree li > ul {
+    display: none;
+  }
+
+  ul.tree li input[type="checkbox"]:checked + label + ul {
+    display: block;
+  }
+
+  /* Telas pequenas (celulares) e acima */
+
+/* Adiciona os atributos à nav quando a tela for menor que 576 pixels */
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: row-reverse; /* Inverte a direção dos itens para o lado direito */
+    justify-content: flex-end; /* Alinha os itens à direita */
+  }
+
+  .navbar-nav {
+    margin-left: auto; /* Move a lista de navegação para a direita */
+  }
+
+  .navbar-nav .nav-item {
+    margin-left: 10px; /* Adiciona um espaçamento entre os itens (opcional) */
+  }
+}

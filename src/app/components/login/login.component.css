@@ -1,0 +1,21 @@
+
+body {
+    background-color: aquamarine;
+}
+body h2, p {
+    color:white;
+    
+}
+
+.login {
+    color:black;
+    font-size: 20px;
+}
+
+.smalltext {
+    color:#ddd;
+    
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: -20px;
+}

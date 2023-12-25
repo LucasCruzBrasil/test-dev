@@ -1,31 +1,80 @@
-<div class="container" style="margin-top: 200px; max-width: 400px;">
-    <div class="row">
+
+
+
+
+<!-- <div class="container" style="margin-top: 200px; max-width: 400px;">
+  <div class="row">
     
     <div class="col-md-12">
-    
-    <div class="card card-primary" >
-    <div class="card-header">
-    <h3 class="card-title">Login <small>Test-Dev</small></h3>
-    </div>
-    
-    
-    <form id="quickForm" [formGroup]="loginFormGroup">
-    <div class="card-body">
-    <div class="form-group">
-    <label for="exampleInputEmail1">Login 00776762701</label>
-    <input formControlName="login" type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" [(ngModel)]="user.login">
-    </div>
-    <div class="form-group">
-    <label for="exampleInputPassword1">Password 00776762701</label>
-    <input formControlName="senha" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="user.senha">
-    </div>
-    <div class="form-group mb-0">
-    
-    </div>
-    </div>
-    <div class="card-footer">
-      <button type="submit" class="btn btn-primary" (click)="doLogin()">Submit</button>
-      </div>
-      </form> 
 
-      
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Login <small>Test-Dev</small></h3>
+        </div>
+
+
+        <form id="quickForm" [formGroup]="loginFormGroup">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Login</label>
+              <input formControlName="login" type="email" name="email" class="form-control" id="exampleInputEmail1"
+                placeholder="Enter email" [(ngModel)]="user.login">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input formControlName="senha" type="password" name="password" class="form-control"
+                id="exampleInputPassword1" placeholder="Password" [(ngModel)]="user.senha">
+            </div>
+            <div class="form-group mb-0">
+
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary" (click)="doLogin()">Submit</button>
+          </div>
+        </form>  -->
+
+
+ <div class="container" style="margin-top: 110px; max-width: 700px;">
+  <section class="content">
+
+    <div class="card">
+      <div class="card-body row">
+        <div class="col-5 text-center d-flex align-items-center justify-content-center" style="background-color: blueviolet;" >
+          <div class="form-group">
+            <h2>Sua<strong>Logo</strong></h2>
+            <p class="lead mb-5">E mais alguma besteira para complementar
+            </p>
+          </div>
+        </div>
+        <div class="col-7" [formGroup]="loginFormGroup">
+          <div class="form-group">
+            <p class="login">Acesse sua Conta</p>
+            <p class="lead mb-5 smalltext">Crie e gerencie seus eventos
+            </p>
+          </div>
+          <div class="form-group">
+            <label for="inputName">Email</label>
+            <input formControlName="login" [(ngModel)]="user.login" type="text" id="inputName" class="form-control" />
+            <div *ngIf="loginFormGroup.get('login')?.errors && loginFormGroup.get('login').touched" class="validation-error">
+              <p style=" color:red">O nome do usuário é obrigatório</p>
+    
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail">Senha</label>
+            <input type="password" formControlName="senha" [(ngModel)]="user.senha" id="inputEmail" class="form-control" />
+            <div *ngIf="loginFormGroup.get('senha')?.errors && loginFormGroup.get('senha').touched" class="validation-error">
+              <p style=" color:red">Senha Obrigatória</p>
+    
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <input [disabled]="loginFormGroup.invalid" type="submit" class="btn btn-primary" value="Acessar" (click)="doLogin()" style="background-color:blueviolet; margin-bottom: -15px; width: 100%;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div> 

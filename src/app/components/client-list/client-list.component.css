@@ -37,10 +37,10 @@ a[data-tooltip]:hover::before {
 }
 table {
     
-    font-size: 14px;
-    /* ou outra fonte de sua escolha e tamanho de fonte desejado */
+    font-size: 12px;
 }
 centered-header tr, th{
     
     text-align:center;
 }
+

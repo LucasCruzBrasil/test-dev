@@ -1,6 +1,8 @@
 <app-dashboard></app-dashboard>
 
 
+
+
 <div class="wrapper" style="margin-top: 25px;">
 
 
@@ -11,12 +13,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Empresas</h1>
+                            <h1 class="m-0">Clientes</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a (click)="voltarRota()">Home</a></li>
-                                <li class="breadcrumb-item active">Lista de Empresas</li>
+                                <li class="breadcrumb-item active">Lista de Clientes</li>
                             </ol>
                         </div>
                     </div>
@@ -47,7 +49,7 @@
                                         <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
                                         <div class="input-group-append">
                                             <button type="submit" class="btn btn-warning">
-                                                Nova Empresa
+                                                Novo Cliente
                                             </button>
                                         </div>
                                     </div>
@@ -68,17 +70,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let empresas of empresa">
-                                            <td>{{empresas.cnpj}}</td>
-                                            <td>{{empresas.razao_social}}</td>
-                                            <td>{{empresas.nome_fantasia}}</td>
-                                            <td style=" text-align: center;">{{empresas.nome_responsavel}}</td>
-                                            <td style=" text-align: center;">{{empresas.celular_responsavel}}</td>
-                                            <td style=" text-align: center;">{{empresas.ativo}}</td>
-                                            <td><button type="button" class="btn btn-danger" style="font-size: 12px;">
+                                        <tr *ngFor="let clientes of cliente">
+                                            <td style=" text-align: center;">{{clientes.cnpj}}</td>
+                                            <td style=" text-align: center;">{{clientes.razao_social}}</td>
+                                            <td style=" text-align: center;">{{clientes.nome_fantasia}}</td>
+                                            <td style=" text-align: center;">{{clientes.nome_responsavel}}</td>
+                                            <td style=" text-align: center;">{{clientes.celular_responsavel}}</td>
+                                            <td style=" text-align: center;">{{clientes.ativo}}</td>
+                                            <td style=" text-align: center;" ><button type="button" class="btn btn-danger" style="font-size: 12px;">
                                                     Excluir</button>{{'
                                                 '}}<button type="button" class="btn btn-warning"
-                                                    [routerLink]="['/edit', empresas.id]" data-tooltip="Editar"
+                                                    [routerLink]="['/edit-clientes', clientes.id]" data-tooltip="Editar"
                                                     style="font-size: 12px;">Editar</button>
                                             </td>
                                         </tr>
@@ -93,3 +95,5 @@
                 </div>
             </div>
 
+
+ <!-- {{cliente | json}}  -->

@@ -9,6 +9,11 @@ import { LoginComponent } from './components/login/login.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormEditComponent } from './components/form-edit/form-edit.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { FormEditClientesComponent } from './components/form-edit-clientes/form-edit-clientes.component';
+import { FormEditUsuariosComponent } from './components/form-edit-usuarios/form-edit-usuarios.component';
+import { VeiculoComponent } from './components/veiculo/veiculo.component';
+import { FormEditVeiculoComponent } from './components/form-edit-veiculo/form-edit-veiculo.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import { FormEditComponent } from './components/form-edit/form-edit.component';
     LoginComponent,
     ClientListComponent,
     DashboardComponent,
-    FormEditComponent
+    FormEditComponent,
+    ClientesComponent,
+    FormEditClientesComponent,
+    FormEditUsuariosComponent,
+    VeiculoComponent,
+    FormEditVeiculoComponent
   ],
   imports: [
     BrowserModule,

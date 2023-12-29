@@ -6,7 +6,7 @@ export class Veiculo {
     ano_fabricacao: string
     placa: string
     capacidade: string
-    imei_dispositivo_rastreamento:string
+    imei_dispositivo_rastreamento: string
     tipo_veiculo: string
     empresa_id: string
     ultima_loca_lizacao_id: string

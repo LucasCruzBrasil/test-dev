@@ -48,7 +48,7 @@
                                     <div class="input-group input-group-sm" style="width: 150px;">
                                         <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
                                         <div class="input-group-append">
-                                            <button type="submit" class="btn btn-warning">
+                                            <button [routerLink]="['/save-clientes']"  type="submit" class="btn btn-warning">
                                                 Novo Cliente
                                             </button>
                                         </div>
@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
+                                <table class="table  text-nowrap">
                                     <thead>
                                         <tr class="centered-header">
                                             <th>CNPJ</th>
@@ -77,12 +77,44 @@
                                             <td style=" text-align: center;">{{clientes.nome_responsavel}}</td>
                                             <td style=" text-align: center;">{{clientes.celular_responsavel}}</td>
                                             <td style=" text-align: center;">{{clientes.ativo}}</td>
-                                            <td style=" text-align: center;" ><button type="button" class="btn btn-danger" style="font-size: 12px;">
+                                            <td style=" text-align: center;" >
+                                                <button type="button" 
+                                                class="btn btn-danger" 
+                                                style="font-size: 12px;"
+                                                data-toggle="modal"
+                                               data-target="#modal-default"
+                                               [attr.data-target]="'#modal-' + clientes.id"
+                                               (click)="onDelete(clientes)"
+                                                >
                                                     Excluir</button>{{'
                                                 '}}<button type="button" class="btn btn-warning"
                                                     [routerLink]="['/edit-clientes', clientes.id]" data-tooltip="Editar"
                                                     style="font-size: 12px;">Editar</button>
                                             </td>
+
+                                             <div class="modal fade" id="modal-default" [id]="'modal-' + clientes.id">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Deseja Mesmo deletar {{nameCliente}}</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <button type="button" class="btn btn-danger"  data-dismiss="modal" (click)="deletarValor(clientes.id)">Excluir</button>
+                                                                 
+                                                            <button type="button" class="btn btn-default"  data-dismiss="modal">Fechar</button>
+
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                           
+                                                        </div>
+                                                       
+                                                    </div>
+                                
+                                                </div>
+                                            </div> 
                                         </tr>
 
                                     </tbody>
@@ -94,6 +126,26 @@
                     </div>
                 </div>
             </div>
-
+            <div class="modal fade" id="modal-default">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title">Default Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+                
+                </div>
+                
+                </div>
 
  <!-- {{cliente | json}}  -->

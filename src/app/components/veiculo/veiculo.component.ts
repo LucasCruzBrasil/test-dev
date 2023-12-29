@@ -13,6 +13,7 @@ import { VeiculoService } from 'src/app/service/veiculo.service';
 export class VeiculoComponent implements OnInit {
   
   veiculo:Veiculo[]
+  nameVeiculo:string
   constructor(private router: Router, private http: VeiculoService,  private authService: AuthService,private activeRouter:ActivatedRoute) {}
   
   ngOnInit(): void {
@@ -37,5 +38,24 @@ export class VeiculoComponent implements OnInit {
     this.router.navigate(['/dashboard'], { relativeTo: this.activeRouter });
     
    }
+
+   onDelete(veiculo){
+      console.log(veiculo.id)
+      this.nameVeiculo = veiculo.nome
+
+   }
+
+
+   deletarValor(id) {
+    this.http.deletaVeiculo(id).subscribe(
+      res =>{ 
+        console.log(res)
+        this.listarVeiculo();
+        
+      }
+    )
+   
+
+  }
 
 }

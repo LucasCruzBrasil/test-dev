@@ -4,7 +4,7 @@
 
     <div class="content-wrapper">
         <div class="container">
-        
+
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
@@ -14,7 +14,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a (click)="voltarRota()">Home</a></li>
-                                <li class="breadcrumb-item active" >Lista de Veículos</li>
+                                <li class="breadcrumb-item active">Lista de Veículos</li>
                             </ol>
                         </div>
                     </div>
@@ -44,8 +44,9 @@
                                     <div class="input-group input-group-sm" style="width: 150px;">
                                         <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
                                         <div class="input-group-append">
-                                            <button type="submit" class="btn btn-warning">
-                                                Novo Cliente
+                                            <button [routerLink]="['/save-veiculos']" type="submit"
+                                                class="btn btn-warning">
+                                                Novo Veículo
                                             </button>
                                         </div>
                                     </div>
@@ -60,7 +61,7 @@
                                             <th>MarcaL</th>
                                             <th>Modelo</th>
                                             <th>Placa</th>
-                                            
+
                                             <th>ATIVO</th>
                                             <th>AÇÃO</th>
                                         </tr>
@@ -72,16 +73,89 @@
                                             <td style=" text-align: center;">{{veiculos.modelo}}</td>
                                             <td style=" text-align: center;">{{veiculos.placa}}</td>
                                             <td style=" text-align: center;">{{veiculos.ativo}}</td>
-                                            <td style=" text-align: center;" ><button type="button" class="btn btn-danger" style="font-size: 12px;">
+                                            <td style=" text-align: center;">
+                                                <button type="button" class="btn btn-danger" style="font-size: 12px;"
+                                                    data-toggle="modal" [attr.data-target]="'#modal-' + veiculos.id"
+                                                    (click)="onDelete(veiculos)">
+                                                    Excluir
+                                                </button>
+                                                {{' '}}
+                                                <button type="button" class="btn btn-warning"
+                                                    [routerLink]="['/edit-veiculos', veiculos.id]" data-tooltip="Editar"
+                                                    style="font-size: 12px;">Editar
+                                                </button>
+                                            </td>
+                                        
+                                            <!-- Modal exclusivo para cada veículo -->
+                                            <div class="modal fade" id="modal-default" [id]="'modal-' + veiculos.id">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Deseja Mesmo deletar {{nameVeiculo}} ?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <button type="button" class="btn btn-danger"  data-dismiss="modal" (click)="deletarValor(veiculos.id)">Excluir</button>
+                                                                 {{' '}}
+                                                            <button type="button" class="btn btn-default"  data-dismiss="modal">Fechar</button>
+
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                           
+                                                        </div>
+                                                       
+                                                    </div>
+                                
+                                                </div>
+                                            </div>
+                                           
+                                        </tr>
+                                        <!-- <tr *ngFor="let veiculos of veiculo">
+                                            <td style=" text-align: center;">{{veiculos.nome}}</td>
+                                            <td style=" text-align: center;">{{veiculos.marca}}</td>
+                                            <td style=" text-align: center;">{{veiculos.modelo}}</td>
+                                            <td style=" text-align: center;">{{veiculos.placa}}</td>
+                                            <td style=" text-align: center;">{{veiculos.ativo}}</td>
+                                            <td style=" text-align: center;"><button type="button"
+                                                    class="btn btn-danger" style="font-size: 12px;" data-toggle="modal"
+                                                    data-target="#modal-default" (click)="onDelete(veiculos)">
                                                     Excluir</button>{{'
                                                 '}}<button type="button" class="btn btn-warning"
                                                     [routerLink]="['/edit-veiculos', veiculos.id]" data-tooltip="Editar"
                                                     style="font-size: 12px;">Editar</button>
                                             </td>
-                                        </tr>
-                                        <!-- teste -->
+                                            <div class="modal fade" id="modal-default">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Deseja Mesmo deletar {{nameVeiculo}} ?</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            {{veiculos.id}}
+                                                            <button type="button" class="btn btn-danger"  data-dismiss="modal" (click)="deletarValor(veiculos.id)">Excluir</button>
+                                                                 {{' '}}
+                                                            <button type="button" class="btn btn-default"  data-dismiss="modal">Fechar</button>
+
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                           
+                                                        </div>
+                                                       
+                                                    </div>
+                                
+                                                </div>
+                                            </div>
+                                        </tr> -->
+                                        
                                     </tbody>
+                                    
                                 </table>
+                                
                             </div>
 
                         </div>
@@ -90,3 +164,4 @@
                 </div>
             </div>
 
+          

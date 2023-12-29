@@ -1,0 +1,88 @@
+<app-dashboard></app-dashboard>
+
+<div class="wrapper" style="margin-top: 50px;">
+
+
+    <div class="content-wrapper">
+        <div class="container">
+
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Usuários</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a (click)="voltar()">Home</a></li>
+                                <li class="breadcrumb-item active">Lista de Usuários</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card-body p-0">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-warning">
+                                                Novo Cliente
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr class="centered-header">
+                                            <th>Nome</th>
+                                            <th>Email</th>
+                                            <th>Celular</th>
+                                            <th>Primeiro Acesso</th>
+                                            <th>Atualizado Em</th>
+                                            <th>ATIVO</th>
+                                            <th>AÇÃO</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let usuarios of usuario">
+                                            <td style=" text-align: center;">{{usuarios.nome_completo}}</td>
+                                            <td style=" text-align: center;">{{usuarios.email}}</td>
+                                            <td style=" text-align: center;">{{usuarios.celular}}</td>
+                                            <td style=" text-align: center;">{{usuarios.primeiro_acesso}}</td>
+                                            <td style=" text-align: center;">{{usuarios.atualizado_em | date:'medium' }}
+                                            </td>
+                                            <td style=" text-align: center;">{{usuarios.ativo}}</td>
+                                            <td style=" text-align: center;"><button type="button"
+                                                    class="btn btn-danger" style="font-size: 12px;">
+                                                    Excluir</button>{{'
+                                                '}}<button type="button" class="btn btn-warning"
+                                                    [routerLink]="['/edit-usuarios', usuarios.id]" data-tooltip="Editar"
+                                                    style="font-size: 12px;">Editar</button>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

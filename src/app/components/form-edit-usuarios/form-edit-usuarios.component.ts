@@ -46,7 +46,7 @@ export class FormEditUsuariosComponent implements OnInit {
   }
 
   voltar():void{
-    this.router.navigate(['cliente'])
+    this.router.navigate(['dashboard'])
   }
 
   updateForm(data) {
@@ -76,7 +76,7 @@ export class FormEditUsuariosComponent implements OnInit {
     console.log(this.formEditUsuarios.value)
     this.http.updateUsuario(id, this.formEditUsuarios.value).subscribe(
      res => {
-       this.router.navigate(['cliente'])
+       this.router.navigate(['usuario'])
      }
     )
    }

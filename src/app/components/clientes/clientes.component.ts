@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/model/cliente';
 import { ListService } from 'src/app/service/list.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import cli from '@angular/cli';
 
 @Component({
   selector: 'app-clientes',
@@ -17,6 +18,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ClientesComponent implements OnInit {
    cliente: Cliente[]
    formEdit: FormGroup
+   nameCliente:string
+   id:string
   constructor(private http: ClientesService, private authService: AuthService, private router: Router, private activeRouter:ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -71,8 +74,21 @@ export class ClientesComponent implements OnInit {
 
    }
 
-   editar(){
-    
-   }
+   onDelete(cliente){
+    console.log(cliente.id)
+    this.nameCliente = cliente.nome_responsavel
+    this.id =cliente.id
+ }
+
+
+   deletarValor(id) {
+    console.log(id)
+    this.http.deletaCliente(id).subscribe(
+      result => {
+         this.listar();
+      }
+    )
+
+  }
 
 }

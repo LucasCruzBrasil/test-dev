@@ -1,1 +1,226 @@
 <app-dashboard></app-dashboard>
+<div class="content-wrapper">
+    <form [formGroup]="formEditVeiculo">
+        <div class="container">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Veículos</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a (click)="voltar()">Home</a></li>
+                                <li class="breadcrumb-item active">Edição de veículos</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Informações básicas</h3>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-10">
+                            <label class="card-title" style="margin-top: 10px; font-size: 10px; color: gray;">
+                                dados báscos de veículos
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <button (click)="voltar()" type="button" class="btn btn-primary btn-default btn-sm"
+                                style="background-color: blue; color: white;">
+                                Voltar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-left: 10px;">
+                    <div class="col-12">
+
+                        <div class="row">
+
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label>Nome</label>
+                                    <input formControlName="nome" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Marca</label>
+                                    <input formControlName="marca" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group" style="margin-right: 5px;">
+                                    <label>Modelo</label>
+                                    <input formControlName="modelo" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Ano Fabricação</label>
+                                    <input formControlName="ano_fabricacao" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Placa</label>
+                                    <input formControlName="placa" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4" *ngIf="some">
+                                <div class="form-group" style="margin-right: 5px;">
+                                    <label>Capacidade</label>
+                                    <input formControlName="capacidade" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="mostra">
+                            <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label>Empresa</label>
+                                    <select class="form-control" formControlName="empresa_id">
+                                        <option *ngFor=" let empresas of empresa " [value]="empresas['id']">
+                                            {{empresas.nome_fantasia}}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Dados do Veículo</h3>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-10">
+                            <label class="card-title" style="margin-top: 10px; font-size: 10px; color: gray;">
+                                Insira os dados
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 10px;">
+                    <div class="col-12">
+
+                        <div class="row">
+                            <div class="col-sm-6" *ngIf="some">
+                                <div class="form-group">
+                                    <label>IMEI Rastreamento</label>
+                                    <input formControlName="imei_dispositivo_rastreamento" type="text"
+                                        class="form-control" placeholder="Enter ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <!-- <div class="form-group">
+                                    <label>Tipo</label>
+                                    <input formControlName="tipo_veiculo" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div> --> <div class="form-group">
+                                    <label>Tipo Veículo</label>
+                                    <select class="form-control" formControlName="tipo_veiculo">
+                                        <option selected *ngFor=" let tipos of tipos " >
+                                            {{tipos.tipo}}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4" *ngIf="some">
+                                <div class="form-group">
+                                    <label>Criado Em</label>
+                                    <input formControlName="criado_em" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-4" *ngIf="some">
+                                <div class="form-group">
+                                    <label>Atualizado Em</label>
+                                    <input formControlName="atualizado_em" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <!-- <div class="form-check" style="margin-top: 35px;">
+                                    <input formControlName="ativo" type="checkbox" class="form-check-input"
+                                        id="exampleCheck2">
+                                    <p class="form-check-label" for="exampleCheck2"
+                                        style="font-size: 12px; margin-top: 5px;">Status</p>
+                                </div> -->
+                                <div class="custom-control custom-switch custom-switch-off-secondary custom-switch-on-primary" style="margin-top: 35px;">
+                                    <input formControlName="ativo" type="checkbox" class="custom-control-input" id="customSwitch3">
+                                    <label class="custom-control-label" for="customSwitch3">Ativo</label>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6" style="margin-left: 5px;" *ngIf="some">
+                                <div class="form-group">
+                                    <button type="submit" type="button" class="btn btn-primary btn-default"
+                                        style="background-color: blue; color: white;"
+                                        (click)=" updateVeiculo()">Editar</button>
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6" style="margin-left: 5px;" *ngIf="mostra">
+                                <div class="form-group">
+                                    <button type="submit" type="button" class="btn btn-primary btn-default"
+                                        style="background-color: blue; color: white;"
+                                        (click)=" saveVeiculo()">Salvar</button>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </form>
+</div>
+

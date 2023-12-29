@@ -11,6 +11,8 @@ import { FormEditClientesComponent } from './components/form-edit-clientes/form-
 import { FormEditUsuariosComponent } from './components/form-edit-usuarios/form-edit-usuarios.component';
 import { VeiculoComponent } from './components/veiculo/veiculo.component';
 import { FormEditVeiculoComponent } from './components/form-edit-veiculo/form-edit-veiculo.component';
+import { FormManifestoComponent } from './components/form-manifesto/form-manifesto.component';
+import { UsuariosListaComponent } from './components/usuarios-lista/usuarios-lista.component';
 
 
   const routes: Routes = [
@@ -19,8 +21,14 @@ import { FormEditVeiculoComponent } from './components/form-edit-veiculo/form-ed
    {path:'lista', component:ClientListComponent, canActivate:[AuthGuardGuard]},
    {path:'cliente', component:ClientesComponent, canActivate:[AuthGuardGuard]},
    {path:'veiculo', component:VeiculoComponent, canActivate:[AuthGuardGuard]},
+   {path:'usuario', component:UsuariosListaComponent, canActivate:[AuthGuardGuard]},
+
+   {path:'manifesto', component:FormManifestoComponent},
    {path:'edit/:id', component:FormEditComponent, canActivate:[AuthGuardGuard]},
    {path:'edit-clientes/:id', component:FormEditClientesComponent, canActivate:[AuthGuardGuard]},
+   {path:'save-clientes', component:FormEditClientesComponent, canActivate:[AuthGuardGuard]},
+   {path:'save-veiculos', component:FormEditVeiculoComponent, canActivate:[AuthGuardGuard]},
+
    {path:'edit-usuarios/:id', component:FormEditUsuariosComponent, canActivate:[AuthGuardGuard]},
    {path:'edit-veiculos/:id', component:FormEditVeiculoComponent, canActivate:[AuthGuardGuard]},
 

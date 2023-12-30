@@ -16,6 +16,7 @@ import { VeiculoComponent } from './components/veiculo/veiculo.component';
 import { FormEditVeiculoComponent } from './components/form-edit-veiculo/form-edit-veiculo.component';
 import { FormManifestoComponent } from './components/form-manifesto/form-manifesto.component';
 import { UsuariosListaComponent } from './components/usuarios-lista/usuarios-lista.component';
+import { FormEditEmpresaComponent } from './components/form-edit-empresa/form-edit-empresa.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UsuariosListaComponent } from './components/usuarios-lista/usuarios-lis
     VeiculoComponent,
     FormEditVeiculoComponent,
     FormManifestoComponent,
-    UsuariosListaComponent
+    UsuariosListaComponent,
+    FormEditEmpresaComponent
   ],
   imports: [
     BrowserModule,

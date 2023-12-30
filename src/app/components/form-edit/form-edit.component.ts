@@ -27,7 +27,8 @@ export class FormEditComponent implements OnInit {
   cliente: Cliente[]
   usuario: Usuario[]
   formEditClientes: FormGroup
-
+  nomeUsuario:string
+  nomeCliente:string
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -144,6 +145,22 @@ export class FormEditComponent implements OnInit {
 
   toggleSidebar() {
     this.server.toggleSidebar();
+  }
+
+  onDelete(usuario){
+    this.nomeUsuario = usuario.nome_completo
+  }
+
+  deletarUsuario(id) {
+    this.httpUsuario.deletaUsuario(id).subscribe(
+      res =>{ 
+        console.log(res)
+        this.listarUsuario();
+        
+      }
+    )
+   
+
   }
  
 }

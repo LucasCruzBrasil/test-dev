@@ -1,0 +1,326 @@
+<app-dashboard></app-dashboard>
+
+
+<div class="content-wrapper">
+    <form [formGroup]="formEdit">
+        <div class="container">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Empresa</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a >Home</a></li>
+                                <li class="breadcrumb-item active">Salvar Empresa</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Informações básicas</h3>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-10">
+                            <label class="card-title" style="margin-top: 10px; font-size: 10px; color: gray;">
+                                Insira os dados báscos de seus clientes
+                            </label>
+                        </div>
+                        <div class="col-2">
+                            <button  type="button" class="btn btn-primary btn-default btn-sm"
+                                style="background-color: blue; color: white;">
+                                Voltar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-left: 10px;">
+                    <div class="col-12">
+
+                        <div class="row">
+
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label>CNPJ</label>
+                                    <input formControlName="cnpj" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Razão Social</label>
+                                    <input formControlName="razao_social" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group" style="margin-right: 5px;">
+                                    <label>Nome Fantasia</label>
+                                    <input formControlName="nome_fantasia" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Nome Responsável</label>
+                                    <input formControlName="nome_responsavel" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4" >
+                                <div class="form-group">
+                                    <label>Celular Responsável</label>
+                                    <input formControlName="celular_responsavel" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group" style="margin-right: 5px;">
+                                    <label>Email Responsável</label>
+                                    <input formControlName="email_responsavel" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-4" *ngIf="showInputSelectEmpresa">
+                                <div class="form-group" style="margin-right: 5px;">
+                                    <label>Empresa</label>
+                                   
+                                    <select class="form-control" formControlName="empresa_id" >
+                                        <option>Escolha uma Empresa</option>
+                                        <option *ngFor="let empresas of empresa" [value]="empresas.id">{{empresas.nome_fantasia}}</option>
+                                       
+                                    </select>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group" style="margin-right: 5px;">
+                                    <label>CPF</label>
+                                    <input formControlName="cpf_responsavel" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Dados de endereço</h3>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-10">
+                            <label class="card-title" style="margin-top: 10px; font-size: 10px; color: gray;">
+                                Insira os dados báscos de seus clientes
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 10px;">
+                    <div class="col-12">
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>CEP</label>
+                                    <input formControlName="cep" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-6">
+
+                                <div class="form-group">
+                                    <label>Select</label>
+                                    <select class="form-control" formControlName="empresa_id">
+                                        <option  *ngFor=" let empresas of empresa " [value]="empresas['id']">
+                                            {{empresas.nome_fantasia}}</option>
+
+                                    </select>
+                                </div>
+                            </div> -->
+                            
+                           
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Logradouro</label>
+                                    <input formControlName="logradouro" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Número Logradouro</label>
+                                    <input formControlName="numero_logradouro" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Comple. Logradouro</label>
+                                    <input formControlName="complemento_logradouro" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group" style="margin-right: 5px;">
+                                    <label>Bairro</label>
+                                    <input formControlName="bairro" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6" >
+                                <div class="form-group">
+                                    <label>Cidade</label>
+                                    <input formControlName="cidade" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-4" >
+                                <div class="form-group">
+                                    <label>Estado</label>
+                                    <input formControlName="estado" type="text" class="form-control"
+                                        placeholder="Enter ...">
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <div class="form-check" style="margin-top: 35px;">
+                                    <input formControlName="ativo" type="checkbox" class="form-check-input"
+                                        id="exampleCheck2">
+                                    <p class="form-check-label" for="exampleCheck2"
+                                        style="font-size: 12px; margin-top: 5px;">Status</p>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Dados Complementares</h3>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-10">
+                            <label class="card-title" style="margin-top: 10px; font-size: 10px; color: gray;">
+                                Insira os dados...
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group" style="margin-left: 5px;">
+                            <label>Precisão</label>
+                            <input formControlName="precisao" type="text" class="form-control" placeholder="Enter ...">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Latitude</label>
+                            <input formControlName="latidude" type="text" class="form-control" placeholder="Enter ...">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group" style="margin-right: 5px;">
+                            <label>Longitude</label>
+                            <input formControlName="longitude" type="text" class="form-control" placeholder="Enter ...">
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="row">
+                    <!-- <div class="col-sm-6" style="margin-left: 5px;">
+                        <div class="form-group">
+                            <button type="submit" type="button" class="btn btn-primary btn-default"
+                                style="background-color: blue; color: white;" >Editar</button>
+
+
+
+                        </div>
+
+                    </div> -->
+                    <div class="col-sm-6" style="margin-left: 5px;">
+                        <div class="form-group">
+                            <button type="submit" type="button" class="btn btn-primary btn-default"
+                                style="background-color: blue; color: white;" (click)="saveEmpresa()">Salvar</button>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="container" *ngIf="esconderBotao">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Datas</h3>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-10">
+                            <label class="card-title" style="margin-top: 10px; font-size: 10px; color: gray;">
+                                Datas..
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group" style="margin-left: 5px;">
+                            <label>Criado Em</label>
+                            <input formControlName="criado_em" type="date" class="form-control" placeholder="Enter ...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </form>
+</div>

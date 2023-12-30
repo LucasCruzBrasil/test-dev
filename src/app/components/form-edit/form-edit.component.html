@@ -187,7 +187,7 @@
   </div>
 </div>
 
-<div class="wrapper" style="margin-top: 25px;">
+<div class="wrapper" style="margin-top: 25px; height: auto;">
 
 
   <div class="content-wrapper">
@@ -272,7 +272,7 @@
   </div>
 </div>
 
-<div class="wrapper" style="margin-top: -300px;">
+ <div class="wrapper" style="margin-top: -100px;">
 
 
   <div class="content-wrapper">
@@ -306,10 +306,9 @@
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
-                    <!-- <input type="text" name="table_search" class="form-control float-right" placeholder="Search"> -->
                     <div class="input-group-append">
-                      <button type="submit" class="btn btn-warning">
-                        Novo Cliente
+                      <button type="submit" class="btn btn-warning" [routerLink]="['/save-veiculos']">
+                        Novo Usuario
                       </button>
                     </div>
                   </div>
@@ -338,12 +337,38 @@
                       <td style=" text-align: center;">{{usuarios.atualizado_em | date:'medium' }}</td>
                       <td style=" text-align: center;">{{usuarios.ativo}}</td>
                       <td style=" text-align: center;"><button type="button" class="btn btn-danger"
-                          style="font-size: 12px;">
+                          style="font-size: 12px;"  data-toggle="modal" [attr.data-target]="'#modal-' + usuarios.id"
+                          (click)="onDelete(usuarios)">
                           Excluir</button>{{'
                         '}}<button type="button" class="btn btn-warning"
                           [routerLink]="['/edit-usuarios', usuarios.id]" data-tooltip="Editar"
                           style="font-size: 12px;">Editar</button>
                       </td>
+
+                      <!-- Modal exclusivo para cada Usuario -->
+                      <div class="modal fade" id="modal-default" [id]="'modal-' + usuarios.id">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Deseja Mesmo deletar {{nomeUsuario}} ?</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-danger"  data-dismiss="modal" (click)="deletarUsuario(usuarios.id)" >Excluir</button>
+                                         {{' '}}
+                                    <button type="button" class="btn btn-default"  data-dismiss="modal">Fechar</button>
+
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                   
+                                </div>
+                               
+                            </div>
+        
+                        </div>
+                    </div>
                     </tr>
 
                   </tbody>
@@ -356,4 +381,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> 

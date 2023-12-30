@@ -13,6 +13,7 @@ import { VeiculoComponent } from './components/veiculo/veiculo.component';
 import { FormEditVeiculoComponent } from './components/form-edit-veiculo/form-edit-veiculo.component';
 import { FormManifestoComponent } from './components/form-manifesto/form-manifesto.component';
 import { UsuariosListaComponent } from './components/usuarios-lista/usuarios-lista.component';
+import { FormEditEmpresaComponent } from './components/form-edit-empresa/form-edit-empresa.component';
 
 
   const routes: Routes = [
@@ -28,6 +29,8 @@ import { UsuariosListaComponent } from './components/usuarios-lista/usuarios-lis
    {path:'edit-clientes/:id', component:FormEditClientesComponent, canActivate:[AuthGuardGuard]},
    {path:'save-clientes', component:FormEditClientesComponent, canActivate:[AuthGuardGuard]},
    {path:'save-veiculos', component:FormEditVeiculoComponent, canActivate:[AuthGuardGuard]},
+   {path:'save-empresa', component:FormEditEmpresaComponent, canActivate:[AuthGuardGuard]},
+
 
    {path:'edit-usuarios/:id', component:FormEditUsuariosComponent, canActivate:[AuthGuardGuard]},
    {path:'edit-veiculos/:id', component:FormEditVeiculoComponent, canActivate:[AuthGuardGuard]},
